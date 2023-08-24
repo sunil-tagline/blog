@@ -17,13 +17,15 @@
 
     <% if person_signed_in? %>
       Logged in as <strong><%= current_person.email%><strong>
-        <%= link_to 'Edit Profile', edit_person_registration_path, :class => 'navbar-link' %>|
-        <%= link_to 'Logout', destroy_person_session_path, data: { turbo_method: :delete } , :class => 'navbar-link' %>
+        <%= link_to 'Edit Profile', edit_person_registration_path, class: "btn btn-secondary btn-sm mx-5" %>|
+        <%= link_to 'Logout', destroy_person_session_path, data: { turbo_method: :delete } , class: "btn btn-secondary btn-sm mx-5" %>
     <% else %>
-        <%= link_to 'Sign up', new_person_registration_path, :class => 'navbar-link' %>|
-        <%= link_to 'Login', new_person_session_path, :class => 'navbar-link' %>
+        <%= link_to 'Sign up', new_person_registration_path, class: "btn btn-secondary btn-sm mx-5" %>|
+        <%= link_to 'Login', new_person_session_path, class: "btn btn-secondary btn-sm mx-5" %>
     <% end %>
-    <div class="m-5 pb-5" >
+
+    <%= link_to "Admin Login", admin_root_path, class: "btn btn-secondary btn-sm mx-5 col-1 "%>
+    <div class="m-5 " >
       <%= yield %>
     </div>
   </body>
